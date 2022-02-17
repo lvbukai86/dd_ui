@@ -33,11 +33,8 @@ export default {
 aside{
   background: lightblue;
   width: 150px;
-  padding: 70px 16px 0px 16px;
-  top: 0;
-  left: 0;
-  position: relative;
-  z-index: 10;
+  padding: 70px 16px 0 16px;
+
   > h2{
     margin-bottom: 4px;
   }
@@ -45,6 +42,13 @@ aside{
       >li{
         padding: 4px 0;
       }
+  }
+}
+@media (max-width: 500px) {
+  aside{
+    top: 0;
+    left: 0;
+    position:fixed;
   }
 }
 </style>
