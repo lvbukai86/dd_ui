@@ -2,7 +2,7 @@
 <div>
  <Topnav/>
   <div class="content">
-    <aside>
+    <aside v-if="memuVisible">
       <h2>组件列表</h2>
       <ol>
         <li>Switch组件</li>
@@ -18,9 +18,14 @@
 
 <script lang="ts">
 import Topnav from '../components/Topnav.vue';
+import {inject,Ref} from 'vue';
 export default {
   name: 'Doc',
-  components: {Topnav}
+  components: {Topnav},
+  setup(){
+    const memuVisible=inject<Ref<boolean>>('xxx') //获取值
+    return  {memuVisible};
+  }
 };
 </script>
 
@@ -28,10 +33,11 @@ export default {
 aside{
   background: lightblue;
   width: 150px;
-  padding: 16px;
-  position: fixed;
+  padding: 70px 16px 0px 16px;
   top: 0;
   left: 0;
+  position: relative;
+  z-index: 10;
   > h2{
     margin-bottom: 4px;
   }
