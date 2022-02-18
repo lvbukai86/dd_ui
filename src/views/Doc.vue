@@ -1,6 +1,5 @@
 <template>
 <div>
- <Topnav/>
   <div class="layout">
     <Topnav class="nav" />
   <div class="content">
