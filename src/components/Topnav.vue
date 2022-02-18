@@ -35,7 +35,10 @@ export default {
   z-index: 10;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   > .logo {
     max-width: 6em;
