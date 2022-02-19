@@ -1,12 +1,12 @@
 <template>
   <template v-if="visible">
+    <teleport to="body">
   <div class="dd-dialog-overlay"  @click="onClickOverlay"></div>
   <div class="dd-dialog-wrapper">
     <div class="dd-dialog">
-      <header>标题 <span @click="close" class="dd-dialog-close"></span></header>
+      <header> <slot name="title"/> <span @click="close" class="dd-dialog-close"></span></header>
       <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
+        <slot name="content"/>
       </main>
       <footer>
         <Button level="main" @click="ok">OK</Button>
@@ -14,6 +14,7 @@
       </footer>
     </div>
   </div>
+    </teleport>
     </template>
 </template>
 
@@ -52,8 +53,7 @@ export default {
         }
       }
       const cancel = () => {
-        console.log(2)
-        context.emit('cancel')
+        props.cancel?.()
         close()
       }
       return {
