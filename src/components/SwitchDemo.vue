@@ -9,9 +9,6 @@ import Switch from  '../lib/Switch.vue'
 import { ref } from 'vue'
 export default {
   components: {Switch},
-  props:{
-    value: Boolean,
-  },
   setup(){
     const bool = ref(false)
     return {bool}
