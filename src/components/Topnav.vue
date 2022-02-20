@@ -7,10 +7,13 @@
 
     </div>
     <ul class="menu" >
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <svg class="toggleAside" @click="toggleMenu" v-if=" toggleMenuButtionVisible">
+      <use xlink:href="#icon-memu"></use>
+    </svg>
   </div>
 </template>
 
@@ -18,6 +21,12 @@
 import {inject,Ref} from 'vue';
 
 export default {
+  props:{
+    toggleMenuButtionVisible:{
+      type:Boolean,
+      default:false
+    }
+  },
   name: 'Topnav',
   setup(){
    const memuVisible=inject<Ref<boolean>>('xxx') //获取值
@@ -67,7 +76,6 @@ $color:#007974;
 
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top:50%;
