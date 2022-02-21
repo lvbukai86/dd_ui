@@ -7,9 +7,6 @@ import DocDemo from './components/DocDemo.vue';
 import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
-import Intro from './views/Intro.vue';
-import Install from './views/Install.vue';
-import GetStarted from './views/GetStarted.vue';
 import {h} from 'vue'
 import MakeDown from './components/Makedown.vue';
 const history = createWebHashHistory();
