@@ -10,7 +10,10 @@ import TabsDemo from './components/TabsDemo.vue';
 import Intro from './views/Intro.vue';
 import Install from './views/Install.vue';
 import GetStarted from './views/GetStarted.vue';
+import {h} from 'vue'
+import MakeDown from './components/Makedown.vue';
 const history = createWebHashHistory();
+const md =filename =>h(MakeDown,{path:`../markdown/${filename}.md`,key:filename}) //封装引入方法直接引入md文件
 export const router = createRouter({
     history,
     routes: [
@@ -19,9 +22,9 @@ export const router = createRouter({
             path: '/doc', component: Doc,
             children: [
                 {path: '', component: DocDemo},
-                {path: 'intro', component: Intro},
-                {path: 'install', component: Install},
-                {path: 'get-started', component: GetStarted},
+                {path: 'intro', component: md('intro')},
+                {path: 'install', component: md('install')},
+                {path: 'get-started', component:md('get-started')},
                 {path: 'switch', component: SwitchDemo},
                 {path: 'button', component: ButtonDemo},
                 {path: 'dialog', component: DialogDemo},
